@@ -1,4 +1,22 @@
+
 # Train the TCT-ColBERT teacher model
+
+```
+python ./train/main.py --use_tpu=False \
+               --do_train=True \
+               --do_eval=True \
+               --train_model=teacher \
+               --eval_model=teacher \
+               --num_train_steps=500000 \
+               --bert_pretrained_dir=./uncased_L-12_H-768_A-12 \
+               --init_checkpoint=./uncased_L-12_H-768_A-12/bert_model.ckpt \
+               --data_dir=./msmarco-passage/tfrecord \
+               --train_file=dataset_train_tower.tf \
+               --eval_file=dataset_dev_tower.tf \
+               --output_dir=./colbert_checkpoint \
+               --train_batch_size=32
+ ```
+ 
 
 # Train the TCT-ColBERT student model
 
