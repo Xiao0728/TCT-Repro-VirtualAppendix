@@ -5,6 +5,7 @@
 - Train the student model using our own trained teacher model (with and without initlisation;
 
 - Train the student model using the author provided teacher checkpoint (without student initialised from teacher)
+
  ```python ./train/main.py --use_tpu=False \
                --do_train=True \
                --do_eval=True \
@@ -18,12 +19,15 @@
                --eval_file=dataset_dev_tower.tf \
                --output_dir=/nfstrecdl/workspace_xiao/tct_colbert_checkpoint_on_ColBERTcheckpoint \
                --train_batch_size=32
-               ```
-
-- Train the student model using the author provided teacher checkpoint (with student initialised from teacher)
-
 ```
-python ./train/main.py --use_tpu=False \
+
+
+
+-  Train the student model using the author provided teacher checkpoint (with student initialised from teacher)
+
+
+
+```python ./train/main.py --use_tpu=False \
                --do_train=True \
                --do_eval=True \
                --train_model=student \
@@ -36,10 +40,14 @@ python ./train/main.py --use_tpu=False \
                --eval_file=dataset_dev_tower.tf \
                --output_dir=/nfstrecdl/workspace_xiao/tct_colbert_checkpoint_on_ColBERT_triples_init \
                --train_batch_size=32 
-               ```
+   ```
+               
 - Train the student model using the author provided teacher checkpoint on the Hard Negative Samples (without initialisation from teacher model)
-```
-python ./train/main.py --use_tpu=False \
+
+
+
+   ```
+   python ./train/main.py --use_tpu=False \
                --do_train=True \
                --do_eval=True \
                --train_model=student \
@@ -52,10 +60,12 @@ python ./train/main.py --use_tpu=False \
                --eval_file=dataset_dev_tower.tf \
                --output_dir=/nfs/sean/workspace_xiao/tct_colbert_checkpoint_on_ColBERTcheckpoint_hnp \
                --train_batch_size=32 
-```
+   ```
+               
 - Train the student model using the author provided teacher checkpoint on the Hard Negative Samples (with initlisation from teacher model)
-```
-python ./train/main.py --use_tpu=False \
+
+   ```
+   python ./train/main.py --use_tpu=False \
                --do_train=True \
                --do_eval=True \
                --train_model=student \
@@ -68,6 +78,7 @@ python ./train/main.py --use_tpu=False \
                --eval_file=dataset_dev_tower.tf \
                --output_dir=/nfs/sean/workspace_xiao/tct_colbert_checkpoint_on_ColBERTcheckpoint_hnp_init \
                --train_batch_size=32 
+               ```
 
-```
+
             
