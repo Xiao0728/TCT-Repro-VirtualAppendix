@@ -19,7 +19,7 @@
                --eval_file=dataset_dev_tower.tf \
                --output_dir=/nfstrecdl/workspace_xiao/tct_colbert_checkpoint_on_ColBERTcheckpoint \
                --train_batch_size=32
-```
+               ```
 
 
 
