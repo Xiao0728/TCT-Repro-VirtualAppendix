@@ -78,7 +78,7 @@
                --eval_file=dataset_dev_tower.tf \
                --output_dir=/nfs/sean/workspace_xiao/tct_colbert_checkpoint_on_ColBERTcheckpoint_hnp_init \
                --train_batch_size=32 
-               ```
+     ```
 
 
             
