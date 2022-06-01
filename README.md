@@ -24,3 +24,8 @@ This codebase makes use of:
   booktitle = {Proceedings of SIGIR 2022},
 }
 ```
+
+## Notes
+
+The "shuf-ties" results reported in Table 5 originally used a non-deterministic approach for shuffling. In this appendix, we replaced this with a deterministic
+approach. Consequently, the values reported vary slightly, but the conclusions do not change.
