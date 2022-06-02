@@ -15,6 +15,12 @@ This guide makes use of:
  - [PyTerrier](https://github.com/terrier-org/pyterrier) using [pyterrier_dr plugin](https://github.com/terrierteam/pyterrier_dr) for dense indexing and retrieval
  - [ir-measures](https://ir-measur.es/) for evaluation
 
+For Python code examples below, we assume the following has already been imported:
+```python
+import pyterrier as pt ; pt.init()
+from pyterrier_sbert import TctColBert, NumpyIndex
+```
+
 ## Evaluation
 
 We use [ir-measures](https://ir-measur.es/) to compute evaluation measures. It uses [trec_eval](https://github.com/usnistgov/trec_eval)'s implementaiton of nDCG@10 and R@1000 and MS MARCO's [RR@10 script](https://github.com/microsoft/MSMARCO-Passage-Ranking/blob/master/ms_marco_eval.py).
@@ -49,9 +55,6 @@ The "Last Mile" setting tests whether results can re reproduced/replicated when 
  - Indexing:
 
 ```python
-import pyterrier as pt ; pt.init()
-from pyterrier_sbert import TctColBert, NumpyIndex
-
 model = TctColBert("castorini/tct_colbert-v2-msmarco") # or castorini/tct_colbert-v2-hn-msmarco or castorini/tct_colbert-v2-hnp-msmarco
 index = NumpyIndex("path/to/my/index", batch_size=100)
 dataset = pt.get_dataset("irds:msmarco-passage")
@@ -68,8 +71,6 @@ bash scripts/table_3_index.sh
  - Retrieval:
 
 ```python
-import pyterrier as pt ; pt.init()
-from pyterrier_sbert import TctColBert, NumpyIndex
 dataset = pt.get_dataset('irds:msmarco-passage/dev/small') # or irds:msmarco-passage/trec-dl-2019/judged
 index = NumpyIndex('path/to/index', verbose=True)
 model = TctColBert('castorini/tct_colbert-v2-msmarco') # or castorini/tct_colbert-v2-hn-msmarco or castorini/tct_colbert-v2-hnp-msmarco
@@ -78,7 +79,7 @@ res = pipeline(dataset.get_topics())
 pt.io.write_results('path/to/run')
 ```
 
-or query all 3 variants using:
+or query all 3 variants for both datasets using:
 
 ```bash
 bash scripts/table_3_retr.sh
