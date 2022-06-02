@@ -55,9 +55,10 @@ The "Last Mile" setting tests whether results can re reproduced/replicated when 
  - Indexing:
 
 ```python
+dataset = pt.get_dataset("irds:msmarco-passage")
 model = TctColBert("castorini/tct_colbert-v2-msmarco") # or castorini/tct_colbert-v2-hn-msmarco or castorini/tct_colbert-v2-hnp-msmarco
 index = NumpyIndex("path/to/my/index", batch_size=100)
-dataset = pt.get_dataset("irds:msmarco-passage")
+
 pipeline = model >> index # encode the documents using the TCT-ColBERT model and pass the results to the dense index
 pipeline.index(dataset.get_corpus_iter(), batch_size=1000) # perform indexing (this will take time)
 ```
@@ -72,8 +73,9 @@ bash scripts/table_3_index.sh
 
 ```python
 dataset = pt.get_dataset('irds:msmarco-passage/dev/small') # or irds:msmarco-passage/trec-dl-2019/judged
-index = NumpyIndex('path/to/index', verbose=True)
 model = TctColBert('castorini/tct_colbert-v2-msmarco') # or castorini/tct_colbert-v2-hn-msmarco or castorini/tct_colbert-v2-hnp-msmarco
+index = NumpyIndex('path/to/index', verbose=True)
+
 pipeline = model >> index # encode the query using the TCT-ColBERT model and query the dense index
 res = pipeline(dataset.get_topics())
 pt.io.write_results('path/to/run')
