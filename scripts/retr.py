@@ -1,5 +1,5 @@
 import pyterrier as pt ; pt.init()
-from pyterrier_sbert import TctColBert, NumpyIndex
+from pyterrier_dr import TctColBert, NumpyIndex
 
 def main():
   import argparse

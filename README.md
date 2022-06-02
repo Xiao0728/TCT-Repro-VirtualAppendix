@@ -18,7 +18,7 @@ This guide makes use of:
 For Python code examples below, we assume the following has already been imported:
 ```python
 import pyterrier as pt ; pt.init()
-from pyterrier_sbert import TctColBert, NumpyIndex
+from pyterrier_dr import TctColBert, NumpyIndex
 ```
 
 ## Evaluation
