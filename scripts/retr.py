@@ -14,7 +14,6 @@ def main():
   dataset = pt.get_dataset(args.dataset)
   pipeline = model >> index
   res = pipeline(dataset.get_topics())
-  res = (model >> index)(valid_dataset.get_topics())
   pt.io.write_results(res, args.out)
 
 if __name__ == '__main__':

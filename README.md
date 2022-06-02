@@ -78,7 +78,7 @@ index = NumpyIndex('path/to/index', verbose=True)
 
 pipeline = model >> index # encode the query using the TCT-ColBERT model and query the dense index
 res = pipeline(dataset.get_topics())
-pt.io.write_results('path/to/run')
+pt.io.write_results(res, 'path/to/run')
 ```
 
 or query all 3 variants for both datasets using:
